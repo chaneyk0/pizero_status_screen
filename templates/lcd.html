@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Status Indicator</h1>
+
+<p>Select a Status:</p>
+
+<p id="demo"></p>
+
+<button onclick="availableFunc()">Available</button>
+<br>
+<button onclick="busyFunc()">Busy</button>
+<br>
+<button onclick="awayFunc()">Away</button>
+<br>
+<button onclick="meetingFunc()">In a meeting</button>
+<br>
+<button onclick="phoneFunc()">On the phone</button>
+<br>
+<button onclick="clearFunc()">Clear Display</button>
+<br>
+<button onclick="sleepyFunc()">Sleepy</button>
+<br>
+<button onclick="errandsFunc()">Running errands</button>
+<br>
+<button onclick="hackingFunc()">Hacking the mainframe</button>
+
+<script>
+
+var available = "http://192.168.0.198:5000/api/available";
+var busy = "http://192.168.0.198:5000/api/busy";
+var away = "http://192.168.0.198:5000/api/away";
+var meeting = "http://192.168.0.198:5000/api/meeting";
+var phone = "http://192.168.0.198:5000/api/phone";
+var clear = "http://192.168.0.198:5000/api/clear";
+var sleepy = "http://192.168.0.198:5000/api/sleepy";
+var errands = "http://192.168.0.198:5000/api/errands";
+var hacking = "http://192.168.0.198:5000/api/hacking";
+
+function availableFunc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", available);
+  document.getElementById("demo").innerHTML = "Status set to Available";
+  xmlhttp.send();
+}
+function busyFunc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", busy);
+  document.getElementById("demo").innerHTML = "Status set to Busy";
+  xmlhttp.send();
+}
+function awayFunc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", away);
+  document.getElementById("demo").innerHTML = "Status set to Away";
+  xmlhttp.send();
+}
+function meetingFunc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", meeting);
+  document.getElementById("demo").innerHTML = "Status set to in a meeting";
+  xmlhttp.send();
+}
+function phoneFunc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", phone);
+  document.getElementById("demo").innerHTML = "Status set to on the phone";
+  xmlhttp.send();
+}
+function clearFunc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", clear);
+  document.getElementById("demo").innerHTML = "Clear Status Screen";
+  xmlhttp.send();
+}
+function sleepyFunc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", sleepy);
+  document.getElementById("demo").innerHTML = "Status set to Sleepy";
+  xmlhttp.send();
+}
+function errandsFunc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", errands);
+  document.getElementById("demo").innerHTML = "Status set to Running errands";
+  xmlhttp.send();
+}
+function hackingFunc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", hacking);
+  document.getElementById("demo").innerHTML = "Status set to Hacking mainframe";
+  xmlhttp.send();
+}
+</script>
+
+</body>
+</html>
