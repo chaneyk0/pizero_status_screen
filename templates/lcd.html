@@ -25,6 +25,14 @@
 <button onclick="errandsFunc()">Running errands</button>
 <br>
 <button onclick="hackingFunc()">Hacking the mainframe</button>
+<br>
+<button onclick="feymoodFunc()">Taken by a fey mood</button>
+
+<form id="customStatusForm">
+    <input type="text" id="customStatus" name="customStatus">
+    <input type="submit" value="Update Status">
+</form>
+
 
 <script>
 
@@ -37,6 +45,7 @@ var clear = "http://192.168.0.198:5000/api/clear";
 var sleepy = "http://192.168.0.198:5000/api/sleepy";
 var errands = "http://192.168.0.198:5000/api/errands";
 var hacking = "http://192.168.0.198:5000/api/hacking";
+var feymood = "http://192.168.0.198:5000/api/feymood";
 
 function availableFunc() {
   var xmlhttp = new XMLHttpRequest();
@@ -92,6 +101,23 @@ function hackingFunc() {
   document.getElementById("demo").innerHTML = "Status set to Hacking mainframe";
   xmlhttp.send();
 }
+function feymoodFunc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", feymood);
+  document.getElementById("demo").innerHTML = "Status set to taken by a fey mood";
+  xmlhttp.send();
+}
+
+document.getElementById('customStatusForm').onsubmit = function(event) {
+    event.preventDefault();
+    var status = document.getElementById('customStatus').value;
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "http://192.168.0.198:5000/update_custom_status", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("customStatus=" + encodeURIComponent(status));
+};
+
+
 </script>
 
 </body>
